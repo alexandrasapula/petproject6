@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+    <link rel="stylesheet" href="/lobby_static/css/lobby.css">
+    <script src="/lobby_static/js/lobby.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Lobby</h1>
+        <div>Welcome, <span id="username"></span>!</div>
+    </header>
+
+    <main>
+        <h2>Available Rooms</h2>
+        <div id="rooms-container">
+            <div id="rooms"></div>
+        </div>
+
+        <form id="create-room-form">
+            <input type="text" id="room-name" placeholder="Room name" required>
+            <button type="submit">Create</button>
+        </form>
+    </main>
+</body>
+</html>

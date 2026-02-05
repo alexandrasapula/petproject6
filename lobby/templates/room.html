@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room {{ room_id }}</title>
+    <!-- <link rel="stylesheet" href="/lobby_static/css/room.css"> -->
+    <script src="/lobby_static/js/room.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Room {{ room_id }}</h1>
+        <div>Welcome, <span id="username"></span>!</div>
+    </header>
+
+    <main>
+        <div id="status" data-room-id="{{ room_id }}">Loading...</div>
+        <div id="username">Loading...</div>
+    </main>
+</body>
+</html>
