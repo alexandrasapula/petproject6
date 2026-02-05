@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Cool App</title>
+    <link rel="stylesheet" href="/auth_static/css/auth.css">
+    <script src="/auth_static/js/auth.js" defer></script>
+</head>
+<body>
+
+<div class="loginreg-container">
+    <div class="loginreg-box">
+        <div class="tabs">
+            <button id="login-tab" class="active">Log in</button>
+            <button id="register-tab">Sign up</button>
+        </div>
+
+        <form id="login-form">
+            <div class="input-group">
+                <input type="text" id="login-username" 
+                    readonly 
+                    onfocus="this.removeAttribute('readonly');" 
+                    autocomplete="username"
+                    required placeholder=" ">
+                <label>Username</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="login-password" 
+                    readonly 
+                    onfocus="this.removeAttribute('readonly');" 
+                    autocomplete="current-password"
+                    required placeholder=" ">
+                <label>Password</label>
+            </div>
+            <button class="loginreg-button">Log in</button>
+
+
+        </form>
+
+        <form id="register-form" class="hidden">
+            <div class="input-group">
+                <input type="text" id="reg-username" 
+                    readonly 
+                    onfocus="this.removeAttribute('readonly');" 
+                    required placeholder=" ">
+                <label>Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="reg-email" 
+                    readonly 
+                    onfocus="this.removeAttribute('readonly');" 
+                    required placeholder=" ">
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="reg-password" 
+                    readonly 
+                    onfocus="this.removeAttribute('readonly');" 
+                    autocomplete="new-password"
+                    required placeholder=" ">
+                <label>Password</label>
+            </div>
+            <button class="loginreg-button">Sign up</button>
+        </form>
+        <p id="message"></p>
+    </div>
+</div>
+
+</body>
+</html>

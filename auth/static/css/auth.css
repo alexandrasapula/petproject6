@@ -1,0 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E6E6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.loginreg-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.loginreg-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 8px;
+    font-size: 12px;
+    color: #FF69B4;
+    background: white;
+    padding: 0 4px;
+}
+
+.loginreg-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loginreg-button:hover {
+    background-color: #FF1493;
+}
+
+.hidden {
+    display: none;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: #eee;
+}
+
+.tabs button.active {
+    background: #FF69B4;
+    color: white;
+}
+/* 
+.google-btn {
+    margin-top: 1px;
+    width: 17%;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid white;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.google-btn:hover {
+    background: #FF1493;
+}
+
+.google-btn img {
+    width: 60px;
+    height: 60px;
+}
+
+.input-group input:focus + label,
+
+.input-group input:not(:placeholder-shown) + label,
+
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.auth-link {
+    color: #FF69B4;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+    color: #FF1493;
+}
+
+.auth-link:visited {
+    color: #FF69B4;
+} */
