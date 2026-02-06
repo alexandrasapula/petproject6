@@ -47,7 +47,7 @@ function renderRooms(rooms) {
             if (res.ok) {
                 const data = await res.json();
                 console.log("Joined room:", data);
-                window.location.href = `/lobby/room/${room.id}`;
+                window.location.href = `/game/room/${room.id}`;
             } 
             else {
                 alert("Failed to join room");
@@ -76,7 +76,7 @@ document.getElementById("create-room-form").addEventListener("submit", async (e)
         if (!res.ok) throw new Error("Failed to create room");
 
         const newRoom = await res.json();
-        window.location.href = `/lobby/room/${newRoom.id}`;
+        window.location.href = `/game/room/${newRoom.id}`;
     } 
     catch (err) {
         console.error(err);
