@@ -5,7 +5,7 @@ from core.database import get_db
 from lobby.models import Room, UserRoom
 from sqlalchemy.orm import Session
 from lobby.schemas import RoomCreate, RoomOut, JoinRoom
-from game.service import start_game_logic
+from game.service import game_start_logic
 
 
 router = APIRouter(prefix="/lobby", tags=["lobby"])
@@ -48,8 +48,7 @@ def join_room(data: JoinRoom, db: Session = Depends(get_db), current_user=Depend
     if not room:
         raise HTTPException(status_code=404, detail="Room not found")
 
-    existing = db.query(UserRoom).filter_by(user_id=current_user.id, room_id=room_id).first()
-    if existing:
+    if (db.query(UserRoom).filter_by(user_id=current_user.id, room_id=room_id).first()):
         return {"room_id": room_id}
 
     taken_seats = db.query(UserRoom.seat_number).filter(UserRoom.room_id == room_id).all()
@@ -58,10 +57,10 @@ def join_room(data: JoinRoom, db: Session = Depends(get_db), current_user=Depend
     if seat_number is None:
         raise HTTPException(status_code=400, detail="Room is full")
 
-    user_room = UserRoom(user_id=current_user,id, room_id=room_id, seat_number=seat_number)
+    user_room = UserRoom(user_id=current_user.id, room_id=room_id, seat_number=seat_number)
     db.add(user_room)
     db.commit()
     players_count = db.query(UserRoom).filter_by(room_id=room_id).count()
     if players_count == 6:
-        start_game_logic(db, room)
+        game_start_logic(room.id, db)
     return {"room_id": room_id}

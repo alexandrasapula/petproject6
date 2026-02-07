@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room {{ room_id }}</title>
-    <!-- <link rel="stylesheet" href="/lobby_static/css/room.css"> -->
+    <link rel="stylesheet" href="/game_static/css/room.css">
     <script src="/game_static/js/room.js" defer></script>
 </head>
 <body>
@@ -12,14 +12,14 @@
         <div>Welcome, <span id="username"></span>!</div>
     </header>
 
-    <main>
+    <main id="status" data-room-id="{{ room_id }}">
         <h2 id="room-title"></h2>
         <p id="status-text"></p>
         <ul id="players-list"></ul>
         <button id="start-btn" style="display:none;">
             Start game
         </button>
-
     </main>
 </body>
+
 </html>

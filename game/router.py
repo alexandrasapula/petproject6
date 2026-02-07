@@ -4,6 +4,8 @@ from auth.deps import get_current_user
 from core.database import get_db
 from lobby.models import Room, UserRoom
 from sqlalchemy.orm import Session
+from auth.models import User
+from .service import game_start_logic
 
 
 router = APIRouter(prefix="/game", tags=["game"])
@@ -27,6 +29,7 @@ def room_data(room_id: int, db: Session = Depends(get_db), current_user=Depends(
         "room_id": room.id,
         "room_name": room.name,
         "status": room.status,
+        "user_id": current_user.id,
         "seat_number": user_room.seat_number,
         "is_owner": user_room.seat_number == 1,
         "players": [
@@ -41,5 +44,15 @@ def room_data(room_id: int, db: Session = Depends(get_db), current_user=Depends(
 
 
 @router.post("/api/room/{room_id}/start")
-def start_game():
-    # вызов функции логики старт гейм лоджик 
+def start_room_game(room_id: int, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
+    room = db.query(Room).get(room_id)
+
+    owner = db.query(UserRoom).filter_by(room_id=room_id, user_id=current_user.id, seat_number=1).first()
+    if not owner:
+        raise HTTPException(403)
+
+    players_count = db.query(UserRoom).filter_by(room_id=room_id).count()
+    if players_count < 2:
+        raise HTTPException(400, "Not enough players")
+
+    game_start_logic(room.id, db)
