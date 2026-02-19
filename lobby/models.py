@@ -12,7 +12,7 @@ import enum
 
 class RoomStatus(str, enum.Enum):
     waiting = "waiting"
-    playing = "playing"
+    playing = "started"
     finished = "finished"
 
 

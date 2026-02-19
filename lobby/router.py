@@ -5,7 +5,7 @@ from core.database import get_db
 from lobby.models import Room, UserRoom
 from sqlalchemy.orm import Session
 from lobby.schemas import RoomCreate, RoomOut, JoinRoom
-from game.service import game_start_logic
+from game.services.service import game_start_logic
 
 
 router = APIRouter(prefix="/lobby", tags=["lobby"])

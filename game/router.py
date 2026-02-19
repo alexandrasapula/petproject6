@@ -5,7 +5,7 @@ from core.database import get_db
 from lobby.models import Room, UserRoom
 from sqlalchemy.orm import Session
 from auth.models import User
-from .service import game_start_logic
+from .services.service import game_start_logic
 
 
 router = APIRouter(prefix="/game", tags=["game"])
@@ -56,3 +56,8 @@ def start_room_game(room_id: int, db: Session = Depends(get_db), current_user=De
         raise HTTPException(400, "Not enough players")
 
     game_start_logic(room.id, db)
+
+
+@router.get("/play/{roomId}")
+def game_page(request: Request, room_id: int):
+    return templates.TemplateResponse("game.html", {"request": request, "room_id": room_id})
